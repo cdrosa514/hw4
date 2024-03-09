@@ -1,25 +1,17 @@
 <h2>New place</h2>
 
 <% if @user != nil %>
-  <form action="/places" method="place" enctype="multipart/form-data">
-    <div class="mb-3">
-      <label for="body_input" class="form-label">Body</label>
-      <input type="text" name="body" id="body_input" class="form-control">
-    </div>
-
-    <div class="mb-3">
-      <label for="image_input" class="form-label">Image URL</label>
-      <input type="text" name="image" id="image_input" class="form-control">
-    </div>
-
-    <div class="mb-3">
-      <label for="uploaded_image_input" class="form-label">Upload Image</label>
-      <input type="file" name="uploaded_image" id="uploaded_image_input" class="form-control">
-    </div>
-
-    <button class="btn btn-primary">Save</button>
-    <a href="/places">Cancel</a>
-  </form>
+<form action="/places" method="post">
+<div class="mb-3">
+  <p>
+    <label for="name" class ="form-label" >Name</label> 
+    <input type="text" name="name" class ="form-control">
+  </p>
+  
+  <button class="btn btn-primary">Save</button>
 <% else %>
   You must first <a href="/login">login</a> to add a new place.
 <% end %>
+
+	
+	 

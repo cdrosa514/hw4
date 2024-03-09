@@ -23,11 +23,9 @@ class PlacesController < ApplicationController
   if @user != nil
     @place = Place.new
     @place["name"] = params["name"]
-    @place["image"] = params["image"]
-    # @place.uploaded_image.attach(params["uploaded_image"])
-    @place["user_id"] = @user["id"]
+    # @place["user_id"] = @user["id"]
     @place.save
-    redirect_to "/places"
+   
   else
     flash["notice"] = "Login first."
   end
