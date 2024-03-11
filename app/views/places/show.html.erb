@@ -1,15 +1,18 @@
 <h1><%= @place["name"] %></h1>
 
-<h2>My Entries</h2>
+<p>
+  <a href="/entries/new?place_id=<%= @place["id"] %>" class="btn btn-success">New Entry</a>
+</p>
+
+
 <% for entry in @entries %>
+   <% user = User.find_by({ "id" => entry["user_id"] }) %>
   <h3><%= entry["title"] %></h3>
-  <h4><%= entry["occurred_on"] %></h4>
+  <h6><%= entry["occurred_on"] %></h6>
+  <img src="<%= url_for(entry.uploaded_image) %>" class="img-fluid">
   <p><%= entry["description"] %></p>
 <% end %>
 
-<p>
-  <a href="/entries/new?place_id=<%= @place["id"] %>">New Entry</a>
-</p>
 
 <p>
   <a href="/places">Back to All Places</a>
